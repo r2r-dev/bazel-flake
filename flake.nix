@@ -7,7 +7,7 @@
 
     java.url = "github:TawasalMessenger/jdk-flake";
     src = {
-      url = "github:bazelbuild/bazel/5.0.0-pre.20210722.2";
+      url = "github:bazelbuild/bazel?ref=a03442dd7408cdc6ef936f96cd3146ff6b3d09dd";
       flake = false;
     };
   };
