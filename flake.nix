@@ -16,7 +16,6 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (
       system:
       let
-        sources = with builtins; (fromJSON (readFile ./flake.lock)).nodes;
         pkgs = nixpkgs.legacyPackages.${system};
         jdk =
           if pkgs.stdenv.isLinux
@@ -25,7 +24,7 @@
         bazel = import ./build.nix {
           inherit pkgs nixpkgs src;
           runJdk = jdk.home;
-          version = sources.src.original.ref;
+          version = "5.0.0-a03442";
         };
         bazel-app = flake-utils.lib.mkApp { drv = bazel; };
         derivation = { inherit bazel; };
